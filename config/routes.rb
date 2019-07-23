@@ -8,12 +8,6 @@ Rails.application.routes.draw do
   
   get "signup", to: "users#new"
   
-  get "/users/:id/likes", to: "users#likes"
-  
-  delete "/users/:id/likes", to: "favorites#destroy"
-  delete "/users/:id", to: "favorites#destroy"
-  delete "/", to: "favorites#destroy"
-  
   resources :users, only: [:index, :show, :new, :create] do
     member do
       get :followings
