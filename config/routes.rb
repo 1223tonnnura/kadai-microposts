@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   get "/users/:id/likes", to: "users#likes"
   
-  delete "/users/:id", to: "favorites#destroy"
+  delete "/users/:id/likes", to: "favorites#destroy"
   
   resources :users, only: [:index, :show, :new, :create] do
     member do
