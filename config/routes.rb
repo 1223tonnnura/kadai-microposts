@@ -8,13 +8,15 @@ Rails.application.routes.draw do
   
   get "signup", to: "users#new"
   
+  get "/users/:id/likes", to: "users#likes"
+  
   delete "/users/:id", to: "favorites#destroy"
   
   resources :users, only: [:index, :show, :new, :create] do
     member do
       get :followings
       get :followers
-      get :favoritings
+      get :likes
     end
   end
   resources :microposts, only: [:create, :destroy]
